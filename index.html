@@ -7,7 +7,48 @@
 
     <script src=""></script>
 </head>
-<body>
-    
+<body class="bg-slate-100 min-h-screen">
+    <header>
+        <nav class="bg-blue-700 text-white">
+            <div class="container mx-auto">
+                <ul class="flex">
+                    <li>
+                        <button
+                            id="weight-tab"
+                            class="px-6 py-4 hover:bg-blue-600">
+                            Weight
+                        </button>
+                        <button
+                            id="weight-tab"
+                            class="px-6 py-4 hover:bg-blue-600">
+                            Distance
+                        </button>
+                        <button
+                            id="weight-tab"
+                            class="px-6 py-4 hover:bg-blue-600">
+                            Temperature
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <section 
+            id=""weight-section>
+        </section>
+
+        <section 
+            id="distance-section"
+            class="hidden">
+        </section>
+
+        <section 
+            id="temperature-section"
+            class="hidden">
+        </section>
+    </main>
+    <script src="./dist/main.js"></script>
 </body>
 </html>
