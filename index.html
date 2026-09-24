@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <script src=""></script>
 </head>
 <body class="bg-slate-100 min-h-screen">
     <header>
@@ -19,12 +17,12 @@
                             Weight
                         </button>
                         <button
-                            id="weight-tab"
+                            id="distance-tab"
                             class="px-6 py-4 hover:bg-blue-600">
                             Distance
                         </button>
                         <button
-                            id="weight-tab"
+                            id="temperature-tab"
                             class="px-6 py-4 hover:bg-blue-600">
                             Temperature
                         </button>
@@ -38,7 +36,7 @@
 
         <!-- Weight section -->
         <section 
-            id=""weight-section>
+            id="weight-section">
             <div class="bg-white rounded-xl shadow-md p-6">
                 <h2 class="text-2xl font-bold mb-6">
                     Weight Converter
@@ -73,7 +71,7 @@
                     Array Values (comma separated)
                 </label>
 
-                <input type="text", id="weight-array-input" placeholder="10, 20, 30" class="w-full border rounded-lg px-4 py-2 mb-4">
+                <input type="text" id="weight-array-input" placeholder="10, 20, 30" class="w-full border rounded-lg px-4 py-2 mb-4">
 
                 <button id="weight-array-button" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
                     Convert Array
@@ -95,6 +93,6 @@
             class="hidden">
         </section>
     </main>
-    <script src="./dist/main.js"></script>
+    <script type="module" src="./dist/main.js"></script>
 </body>
 </html>
