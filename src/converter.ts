@@ -2,6 +2,8 @@ const conversions: Record<string, (inputValue: number) => number> = {
   // Weight
   //poundsToKilograms:
   //kilogramsToPounds:
+  poundsToKilograms: (inputValue: number) => inputValue * 0.453592,
+  kilogramsToPounds: (inputValue: number) => inputValue * 2.20462,
 
   // Distance
   //milesToKilometers:
