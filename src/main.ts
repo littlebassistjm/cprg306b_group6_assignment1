@@ -24,6 +24,27 @@ const weightArrayButton = document.getElementById(
 const weightResult = document.getElementById("weight-result") as HTMLDivElement;
 
 // Get Distance HTML elements
+const distanceConversion = document.getElementById(
+  "distance-conversion",
+) as HTMLSelectElement;
+
+const distanceSingleInput = document.getElementById(
+  "distance-single-input",
+) as HTMLInputElement;
+
+const distanceSingleButton = document.getElementById(
+  "distance-single-button",
+) as HTMLButtonElement;
+
+const distanceArrayInput = document.getElementById(
+  "distance-array-input",
+) as HTMLInputElement;
+
+const distanceArrayButton = document.getElementById(
+  "distance-array-button",
+) as HTMLButtonElement;
+
+const distanceResult = document.getElementById("distance-result") as HTMLDivElement;
 
 // Get Temperature HTML elements
 
@@ -38,6 +59,10 @@ function getConverter(conversionType: string) {
       return createConverter("kilograms", "pounds");
 
     // Distance
+    case "milesToKilometers":
+      return createConverter("miles", "kilometers");
+    case "kilometersToMiles":
+      return createConverter("kilometers", "miles");
 
     // Temperature
 
@@ -76,3 +101,70 @@ weightArrayButton.addEventListener("click", () => {
     .map((weightValue) => weightValue.toFixed(2))
     .join(", ");
 });
+
+// DISTANCE CONVERSIONS
+// Single Value (Distance)
+distanceSingleButton.addEventListener("click", () => {
+  const distanceInputValue = Number(distanceSingleInput.value);
+
+  const converter = getConverter(distanceConversion.value);
+
+  const result = converter(distanceInputValue);
+
+  distanceResult.textContent = result.toFixed(2);
+});
+
+// Array Conversion (Distance)
+distanceArrayButton.addEventListener("click", () => {
+  const conversionType = distanceConversion.value;
+
+  const distanceValues = distanceArrayInput.value
+    .split(",")
+    .map((distanceValue) => Number(distanceValue.trim()));
+
+  const converter = getConverter(distanceConversion.value);
+
+  const distanceResultValues = distanceValues.map((distanceValue) =>
+    converter(distanceValue),
+  );
+
+  distanceResult.textContent = distanceResultValues
+    .map((distanceValue) => distanceValue.toFixed(2))
+    .join(", ");
+});
+
+// Added hidden tab functionality
+const weightTab = document.getElementById("weight-tab");
+const distanceTab = document.getElementById("distance-tab");
+const temperatureTab = document.getElementById("temperature-tab");
+
+const weightSection = document.getElementById("weight-section");
+const distanceSection = document.getElementById("distance-section");
+const temperatureSection = document.getElementById("temperature-section");
+
+if (
+    weightTab &&
+    distanceTab &&
+    temperatureTab &&
+    weightSection &&
+    distanceSection &&
+    temperatureSection
+){
+  weightTab.addEventListener("click", () => {
+    weightSection.classList.remove("hidden");
+    distanceSection.classList.add("hidden");
+    temperatureSection.classList.add("hidden");
+  });
+
+  distanceTab.addEventListener("click", () => {
+      weightSection.classList.add("hidden");
+      distanceSection.classList.remove("hidden");
+      temperatureSection.classList.add("hidden");
+  });
+
+  temperatureTab.addEventListener("click", () => {
+      weightSection.classList.add("hidden");
+      distanceSection.classList.add("hidden");
+      temperatureSection.classList.remove("hidden");
+  });
+}

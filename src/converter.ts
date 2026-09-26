@@ -7,7 +7,9 @@ const conversions: Record<string, (inputValue: number) => number> = {
 
   // Distance
   //milesToKilometers:
+  milesToKilometers: (inputValue: number) => inputValue * 1.60934,
   //kilometersToMiles:
+  kilometersToMiles: (inputValue: number) => inputValue * 0.621371,
 
   // Temperature
   //celsiusToFahrenheit:
