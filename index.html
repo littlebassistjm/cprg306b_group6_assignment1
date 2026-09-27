@@ -85,6 +85,48 @@
         <section 
             id="distance-section"
             class="hidden">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-6">
+                    Distance Converter
+                </h2>
+
+                <label class="block mb-2">
+                    Conversion Type
+                </label>
+
+                <select id="distance-conversion" class="w-full border rounded-lg px-4 py-2 mb-4">
+                    <option value="milesToKilometers">
+                        Miles -> Kilometers
+                    </option>
+                    <option value="kilometersToMiles">
+                        Kilometers -> Miles
+                    </option>
+                </select>
+
+                <label class="block mb-2">
+                    Single Value
+                </label>
+
+                <input type="number" id="distance-single-input" class="w-full border rounded-lg px-4 py-2 mb-4">
+
+                <button id="distance-single-button" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                    Convert Single Value
+                </button>
+
+                <hr class="my-6">
+
+                <label class="block mb-2">
+                    Array Values (comma separated)
+                </label>
+
+                <input type="text" id="distance-array-input" placeholder="10, 20, 30" class="w-full border rounded-lg px-4 py-2 mb-4">
+
+                <button id="distance-array-button" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                    Convert Array
+                </button>
+
+                <div id="distance-result" class="mt-6 text-xl font-bold text-blue-700"></div>
+            </div>
         </section>
 
         <!-- Temperature section -->
