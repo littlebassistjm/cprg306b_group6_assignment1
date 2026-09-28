@@ -47,6 +47,29 @@ const distanceArrayButton = document.getElementById(
 const distanceResult = document.getElementById("distance-result") as HTMLDivElement;
 
 // Get Temperature HTML elements
+const temperatureConversion = document.getElementById(
+  "temperature-conversion",
+) as HTMLSelectElement;
+
+const temperatureSingleInput = document.getElementById(
+  "temperature-single-input",
+) as HTMLInputElement;
+
+const temperatureSingleButton = document.getElementById(
+  "temperature-single-button",
+) as HTMLButtonElement;
+
+const temperatureArrayInput = document.getElementById(
+  "temperature-array-input",
+) as HTMLInputElement;
+
+const temperatureArrayButton = document.getElementById(
+  "temperature-array-button",
+) as HTMLButtonElement;
+
+const temperatureResult = document.getElementById(
+  "temperature-result",
+) as HTMLDivElement;
 
 // Helper function that determines which converter to use
 
@@ -65,7 +88,11 @@ function getConverter(conversionType: string) {
       return createConverter("kilometers", "miles");
 
     // Temperature
-
+    case "celsiusToFahrenheit":
+      return createConverter("celsius", "fahrenheit");
+    case "fahrenheitToCelsius":
+      return createConverter("fahrenheit", "celsius");
+      
     default:
       throw new Error(`Conversion type "${conversionType}" doesn't exist`);
   }
@@ -131,6 +158,34 @@ distanceArrayButton.addEventListener("click", () => {
   distanceResult.textContent = distanceResultValues
     .map((distanceValue) => distanceValue.toFixed(2))
     .join(", ");
+});
+
+// TEMPERATURE CONVERSIONS
+// Single Value (Temperature)
+temperatureSingleButton.addEventListener("click", () => {
+  const temperatureInputValue = Number(temperatureSingleInput.value);
+
+  const converter = getConverter(temperatureConversion.value);
+
+  const result = converter(temperatureInputValue);
+  temperatureResult.textContent = result.toFixed(2);
+});
+
+// Array Conversion (Temperature)
+temperatureArrayButton.addEventListener("click", () => {
+  const temperatureValues = temperatureArrayInput.value
+    .split(",")
+    .map((temperatureValue) => Number(temperatureValue.trim())
+  );
+
+  const converter = getConverter(temperatureConversion.value);
+
+  const temperatureResultValues = temperatureValues.map((temperatureValue) => 
+    converter(temperatureValue));
+
+  temperatureResult.textContent = temperatureResultValues
+    .map((temperatureValue) => temperatureValue.toFixed(2))
+  .join(", ");
 });
 
 // Added hidden tab functionality
