@@ -13,7 +13,9 @@ const conversions: Record<string, (inputValue: number) => number> = {
 
   // Temperature
   //celsiusToFahrenheit:
+  celsiusToFahrenheit: (inputValue: number) => (inputValue * 9) /5 + 32,
   //fahrenheitToCelsius:
+  fahrenheitToCelsius: (inputValue: number) =>((inputValue - 32) * 5) / 9,
 };
 
 export function createConverter(fromUnit: string, toUnit: string) {
