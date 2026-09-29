@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-100 min-h-screen">
+<body
+class="min-h-screen bg-cover bg-center bg-no-repeat"
+style="background-image: url('./images/background.png');">
     <header>
-        <nav class="bg-blue-700 text-white">
+        <nav class="bg-emerald-900/80 backdrop-blur-md text-white">
             <div class="container mx-auto">
                 <ul class="flex">
                     <li>
                         <button
                             id="weight-tab"
-                            class="px-6 py-4 hover:bg-blue-600">
+                            class="px-6 py-4 rounded-lg transition duration-300 hover:bg-emerald-500">
                             Weight
                         </button>
                         <button
                             id="distance-tab"
-                            class="px-6 py-4 hover:bg-blue-600">
+                            class="px-6 py-4 rounded-lg transition duration-300 hover:bg-emerald-500">
                             Distance
                         </button>
                         <button
                             id="temperature-tab"
-                            class="px-6 py-4 hover:bg-blue-600">
+                            class="px-6 py-4 rounded-lg transition duration-300 hover:bg-emerald-500">
                             Temperature
                         </button>
                     </li>
@@ -37,7 +39,7 @@
         <!-- Weight section -->
         <section 
             id="weight-section">
-            <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="bg-white rounded-xl shadow-xl p-6">
                 <h2 class="text-2xl font-bold mb-6">
                     Weight Converter
                 </h2>
@@ -61,7 +63,7 @@
 
                 <input type="number" id="weight-single-input" class="w-full border rounded-lg px-4 py-2 mb-4">
 
-                <button id="weight-single-button" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                <button id="weight-single-button" class="bg-emerald-600 text-white px-4 py-2 rounded-lg">
                     Convert Single Value
                 </button>
 
@@ -73,11 +75,11 @@
 
                 <input type="text" id="weight-array-input" placeholder="10, 20, 30" class="w-full border rounded-lg px-4 py-2 mb-4">
 
-                <button id="weight-array-button" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                <button id="weight-array-button" class="bg-emerald-600 text-white px-4 py-2 rounded-lg">
                     Convert Array
                 </button>
 
-                <div id="weight-result" class="mt-6 text-xl font-bold text-blue-700"></div>
+                <div id="weight-result" class="mt-6 text-xl font-bold text-emerald-700"></div>
             </div>
         </section>
 
@@ -85,7 +87,7 @@
         <section 
             id="distance-section"
             class="hidden">
-            <div class="bg-white rounded-xl shadow-md p-6">
+            <div class="bg-white rounded-xl shadow-xl p-6">
                 <h2 class="text-2xl font-bold mb-6">
                     Distance Converter
                 </h2>
@@ -109,7 +111,7 @@
 
                 <input type="number" id="distance-single-input" class="w-full border rounded-lg px-4 py-2 mb-4">
 
-                <button id="distance-single-button" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                <button id="distance-single-button" class="bg-emerald-600 text-white px-4 py-2 rounded-lg">
                     Convert Single Value
                 </button>
 
@@ -121,7 +123,7 @@
 
                 <input type="text" id="distance-array-input" placeholder="10, 20, 30" class="w-full border rounded-lg px-4 py-2 mb-4">
 
-                <button id="distance-array-button" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                <button id="distance-array-button" class="bg-emerald-600 text-white px-4 py-2 rounded-lg">
                     Convert Array
                 </button>
 
@@ -133,6 +135,38 @@
         <section 
             id="temperature-section"
             class="hidden">
+
+            <div class="bg-white rounded-xl shadow-xl p-6">
+                <h2 class="text-2xl font-bold mb-6"> Temperature Converter</h2>
+                <label class="block mb-2"> Conversion Type</label>
+                <select id="temperature-conversion" class="w-full border rounded-lg px-4 py-2 mb-4">
+                    <option value="celsiusToFahrenheit">
+                        Celsius -> Fahrenheit</option>
+                    <option value="fahrenheitToCelsius">
+                        Fahrenheit -> Celsius</option>
+                </select>
+                <label class="block mb-2"> Single Value</label>
+                <input
+                    type="number"
+                    id="temperature-single-input"
+                    class="w-full border rounded-lg px-4 py-2 mb-4 ">
+                <button
+                    id="temperature-single-button"
+                    class="bg-emerald-600 text-white px-4 py-2 rounded-lg"> Convert Single Value</button>
+                <hr class="my-6">
+                <label class="block mb-2"> Array Values (comma separated)</label>
+                <input
+                    type="text"
+                    id="temperature-array-input"
+                    placeholder="0, 50, 100"
+                    class="w-full border rounded-lg px-4 py-2 mb-4">
+                <button
+                    id="temperature-array-button"
+                    class="bg-emerald-600 text-white px-4 py-2 rounded-lg"> Convert Array</button>
+                <div 
+                    id="temperature-result"
+                    class="mt-6 text-xl font-bold text-emerald-700"></div>
+            </div>
         </section>
     </main>
     <script type="module" src="./dist/main.js"></script>
